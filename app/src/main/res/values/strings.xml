@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Care Coord</string>
+    <string name="edit_name">Edit</string>
+    <string name="basic_details_name">Basic Details</string>
+    <string name="body_parameters_name">Body Parameters</string>
+    <string name="female_details_name">Female Details</string>
+    <string name="doctors_remark_name">Doctors Remark</string>
+    <string name="diagnosis_and_treatment_screen">Diagnosis</string>
+    <string name="laboratory_tests_name">Laboratory Tests</string>
+</resources>
