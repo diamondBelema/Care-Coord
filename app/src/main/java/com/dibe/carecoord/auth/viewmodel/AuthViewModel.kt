@@ -16,7 +16,6 @@ import java.time.Instant
 import android.util.Log
 
 class AuthViewModel(application: Application) : AndroidViewModel(application) {
-
     private val _state = MutableStateFlow(AuthState())
     val state = _state.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), AuthState())
 
