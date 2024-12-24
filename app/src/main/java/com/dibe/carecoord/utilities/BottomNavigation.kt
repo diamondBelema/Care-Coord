@@ -19,15 +19,14 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 
 sealed class BottomNavScreen(val route: String, val title: String, val icon: ImageVector) {
     data object Home : BottomNavScreen(Screens.HOME.name , Screens.HOME.name , Icons.Default.Home)
-//    data object Chat : BottomNavScreen(Screens.CHAT.name , Screens.CHAT.name , Icons.AutoMirrored.Filled.Chat)
+    data object Chat : BottomNavScreen(Screens.CHAT.name , Screens.CHAT.name , Icons.AutoMirrored.Filled.Chat)
 //    data object Settings : BottomNavScreen(Screens.SETTINGS.name , Screens.SETTINGS.name , Icons.Filled.Settings)
 }
 
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
-//    , BottomNavScreen.Chat, BottomNavScreen.Settings
-    val items = listOf(BottomNavScreen.Home)
+    val items = listOf(BottomNavScreen.Home, BottomNavScreen.Chat)
     NavigationBar(
         modifier = Modifier
             .fillMaxWidth()

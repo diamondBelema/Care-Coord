@@ -486,7 +486,6 @@ class FolderViewModel(application: Application) : AndroidViewModel(application) 
                 documentId = "unique()", // Use Appwrite's unique document ID
                 data = folder.toMap() // Convert the Folder object to a Map<String, Any>
                                                            )
-
             val newFolder = folder.copy(id = newFolderDocument.id)
             _state.value = _state.value.copy(folders = _state.value.folders.plus(newFolder))
             showError("${newFolder.name} folder Successfully added")

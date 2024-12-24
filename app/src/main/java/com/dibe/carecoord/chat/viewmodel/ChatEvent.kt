@@ -1,9 +1,7 @@
 package com.dibe.carecoord.chat.viewmodel
 
-interface HDBEvent {
-    data class SendMessage(
-            val message: String,
-            val onSuccess: () -> Unit,
-            val onError: (Exception) -> Unit
-                          ) : HDBEvent
+import com.dibe.carecoord.chat.viewmodel.util.Chat
+
+interface ChatEvent {
+    data class SendMessage(val chat: Chat) : ChatEvent
 }

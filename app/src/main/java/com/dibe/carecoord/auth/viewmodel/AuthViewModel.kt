@@ -79,6 +79,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             SharedPreferencesHelper.saveUserEmail(event.email)
             SharedPreferencesHelper.saveHospitalID(document.data["HospitalID"] as String)
             SharedPreferencesHelper.saveBio(document.data["Bio"] as String)
+            SharedPreferencesHelper.saveUserID(document.id)
             SharedPreferencesHelper.saveOccupation(document.data["Occupation"] as String)
             SharedPreferencesHelper.saveUsername(document.data["Name"] as String)
 

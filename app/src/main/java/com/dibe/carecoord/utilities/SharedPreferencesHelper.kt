@@ -23,6 +23,10 @@ object SharedPreferencesHelper {
         sharedPreferences.edit().putString("occupation", occupation).apply()
     }
 
+    fun saveUserID(userID: String) {
+        sharedPreferences.edit().putString("userID", userID).apply()
+    }
+
     fun saveUserEmail(userEmail: String) {
         sharedPreferences.edit().putString("userEmail", userEmail).apply()
     }
@@ -35,8 +39,12 @@ object SharedPreferencesHelper {
         sharedPreferences.edit().putBoolean("isLoggedIn", isLoggedIn).apply()
     }
 
-    fun isLoggedIn(): Boolean? {
+    fun isLoggedIn(): Boolean {
         return sharedPreferences.getBoolean("isLoggedIn", false)
+    }
+
+    fun getUserID(): String? {
+        return sharedPreferences.getString("userID", "defaultUserID")
     }
 
     fun getUsername(): String? {

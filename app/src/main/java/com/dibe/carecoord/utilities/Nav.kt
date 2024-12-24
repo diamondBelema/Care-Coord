@@ -26,13 +26,18 @@ import com.dibe.carecoord.folders.viewmodel.FolderState
 import com.dibe.carecoord.old.Presentation.Screens.Screens
 import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
+import com.dibe.carecoord.chat.view.ChatScreen
+import com.dibe.carecoord.chat.viewmodel.ChatEvent
+import com.dibe.carecoord.chat.viewmodel.ChatState
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun Nav(
-        authOnEvent: (AuthEvent) -> Unit,
-        folderOnEvent: (FolderEvent) -> Unit,
-        folderState: FolderState,
+        authOnEvent: (AuthEvent) -> Unit ,
+        folderOnEvent: (FolderEvent) -> Unit ,
+        chatOnEvent: (ChatEvent) -> Unit ,
+        chatState: ChatState ,
+        folderState: FolderState ,
         context: Context
        ) {
     val navController = rememberNavController()
@@ -65,6 +70,14 @@ fun Nav(
                    exitTransition = { fadeOut(animationSpec = tween(500)) }
                   ) {
             HomeScreen(onEvent = folderOnEvent, state = folderState, navController = navController, context = context)
+        }
+
+        // Home screen with fade transition
+        composable(Screens.CHAT.name,
+                   enterTransition = { fadeIn(animationSpec = tween(500)) },
+                   exitTransition = { fadeOut(animationSpec = tween(500)) }
+                  ) {
+            ChatScreen(onEvent = chatOnEvent, state = chatState, navController = navController, context = context)
         }
 
         // Slide in from the right for Search, Edit, and Settings screens

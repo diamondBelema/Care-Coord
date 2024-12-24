@@ -21,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dibe.carecoord.auth.viewmodel.AuthViewModel
+import com.dibe.carecoord.chat.viewmodel.ChatViewModel
 import com.dibe.carecoord.folders.viewmodel.FolderViewModel
 import com.dibe.carecoord.utilities.AppwriteClient
 import com.dibe.carecoord.utilities.SharedPreferencesHelper
@@ -36,6 +37,7 @@ import java.util.Collections
 class MainActivity : ComponentActivity() {
     private val authViewModel: AuthViewModel by viewModels()
     private val folderViewModel: FolderViewModel by viewModels()
+    private val chatViewModel: ChatViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState : Bundle?) {
@@ -57,11 +59,12 @@ class MainActivity : ComponentActivity() {
                     color = colorScheme.background
                        ) {
                     val authOnEvent = authViewModel::onEvent
-                    val authState by authViewModel.state.collectAsState()
                     val folderOnEvent = folderViewModel::onEvent
                     val folderState by folderViewModel.state.collectAsState()
+                    val chatOnEvent = chatViewModel::onEvent
+                    val chatState by chatViewModel.state.collectAsState()
 
-                    Nav(authOnEvent = authOnEvent, folderOnEvent = folderOnEvent, folderState = folderState, context = this)
+                    Nav(authOnEvent = authOnEvent, folderOnEvent = folderOnEvent, chatState = chatState, chatOnEvent = chatOnEvent, folderState = folderState, context = this)
                 }
             }
         }
